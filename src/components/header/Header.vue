@@ -12,7 +12,7 @@
         router-link(
           tag="span",
           v-for="(room, key) in rooms",
-          :to="{path: '/r/'+ key}",
+          :to="{path: '/'+ key}",
           class="link white mr3 f4",
           :class="{'o-40': currentRoom !== key}",
           :key="key",

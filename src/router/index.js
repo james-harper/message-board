@@ -15,7 +15,7 @@ export default new Router({
       component: Home
     },
     {
-      path: '/r/:room',
+      path: '/:room',
       component: Room,
       props: true,
       children: [
