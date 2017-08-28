@@ -1,6 +1,6 @@
-# crapchat
+# 💩 crapchat
 
-> A pseudo-anonymous messageboard which uses emojis to categorise each board
+> A pseudo-anonymous messageboard which uses emojis as the subject of each board
 
 This application was primarily made so that I could play around with some libraries
 that had caught my interest. This is why it is very limited in features in its current state.
@@ -12,3 +12,5 @@ The libraries were:
 - [Pug](https://github.com/pugjs/pug)
 - [Firebase](https://github.com/firebase/firebase-js-sdk)
 - [Twemoji](https://github.com/twitter/twemoji)
+
+Check it out at: [crapchat.surge.sh](crapchat.surge.sh)
