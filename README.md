@@ -13,4 +13,4 @@ The libraries were:
 - [Firebase](https://github.com/firebase/firebase-js-sdk)
 - [Twemoji](https://github.com/twitter/twemoji)
 
-Check it out at: [crapchat.surge.sh](crapchat.surge.sh)
+Check it out at: [crapchat.surge.sh](http://crapchat.surge.sh)
