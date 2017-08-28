@@ -1,5 +1,5 @@
-var firebase = require('firebase/app');
-require('firebase/database');
+// var firebase = require('firebase/app');
+// require('firebase/database');
 
 var config = {
     apiKey: process.env.FIREBASE_API_KEY,
