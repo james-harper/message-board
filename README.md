@@ -1,21 +1,14 @@
-# chat
+# crapchat
 
-> A Vue.js project
+> A pseudo-anonymous messageboard which uses emojis to categorise each board
 
-## Build Setup
+This application was primarily made so that I could play around with some libraries
+that had caught my interest. This is why it is very limited in features in its current state.
+I'll probably add some more stuff later though.
 
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+The libraries were:
+- [Vue Router](https://github.com/vuejs/vue-router)
+- [Tachyons](https://github.com/tachyons-css/tachyons)
+- [Pug](https://github.com/pugjs/pug)
+- [Firebase](https://github.com/firebase/firebase-js-sdk)
+- [Twemoji](https://github.com/twitter/twemoji)
