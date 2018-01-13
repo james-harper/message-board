@@ -3,8 +3,8 @@ div(class="vh-100 pt5 pa2")
   div(class="fl w-100 h-70 overflow-scroll-y")
     router-view
   div.cf
-  div(class="bg-light-gray fixed w-100 bottom-0 left-0 h-10 pa3 b--light-gray bt")
-    ChatMessageForm(@submit="submit")
+  div(:class="formClass")
+    ChatMessageForm(@submit="submit" @collapse="collapseForm")
 </template>
 
 <script>
@@ -18,7 +18,8 @@ export default {
   name: 'chat-room',
   data() {
     return {
-      db: firebase.database()
+      db: firebase.database(),
+      formOpen: true
     }
   },
   components: {
@@ -26,7 +27,20 @@ export default {
     ChatMessageForm,
     ChatMessageList
   },
+  computed: {
+    formClass() {
+      let formClass = 'bg-light-gray fixed w-100 bottom-0 left-0 h-10 pa3 b--light-gray bt';
+      if (!this.formOpen) {
+        formClass += ' collapsed';
+      }
+
+      return formClass;
+    }
+  },
   methods: {
+    collapseForm(shouldCollapse) {
+      this.formOpen = !shouldCollapse;
+    },
     submit(message) {
       let timestamp =  Date.now();
 
@@ -54,4 +68,7 @@ export default {
 .cf
   clear: both
   height: 178px
+
+.collapsed
+  height 42px !important
 </style>

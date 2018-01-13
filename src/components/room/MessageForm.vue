@@ -3,8 +3,18 @@ div
   form(class="black-80 w-100")
     div(class="fl w-100")
       div(class="w-100")
-        label(class="fl gilroy w-80 f6 b db mb2") {{labelText}}
+        ChatLabel(
+          v-if="collapsed"
+          class="pointer underline"
+          text="- Click here to open"
+          @click="toggleCollapsed()"
+        )
+        ChatLabel(
+          v-else
+          :text="labelText"
+        )
         small(
+          v-show="!collapsed"
           class="fr w-20 tr f6",
           :class="{'black-60': allowSubmission && message.length, 'dark-red': !allowSubmission && message.length}"
         ) {{message.length}}/{{maxLength}}
@@ -15,6 +25,12 @@ div
         class="db border-box hover-black w-100 ba b--black-20 pa2 br2 mb2"
         @keydown.ctrl.enter="submit()"
         @keydown.alt.enter="giphy()"
+      )
+      ChatLabel(
+        text="- Click here to collapse"
+        v-show="!collapsed"
+        class="pointer underline toggle"
+        @click="toggleCollapsed()"
       )
       ChatButton(
         class="fr",
@@ -31,6 +47,7 @@ div
 </template>
 <script>
 import ChatButton from '@/components/generic/Button';
+import ChatLabel from '@/components/generic/Label';
 import Giphy from '@/giphy';
 import _random from 'lodash/random';
 import { linkify, convertLineBreaks } from '@/helpers';
@@ -41,10 +58,12 @@ export default {
     return {
       message: '',
       maxLength: 500,
+      collapsed: false
     }
   },
   components: {
-    ChatButton
+    ChatButton,
+    ChatLabel
   },
   watch: {
     '$route'() {
@@ -62,6 +81,10 @@ export default {
     }
   },
   methods: {
+    toggleCollapsed() {
+      this.collapsed = !this.collapsed;
+      this.$emit('collapse', this.collapsed);
+    },
     submit(message) {
       message = message || this.message;
 
@@ -97,4 +120,8 @@ export default {
 <style lang="stylus" scoped>
 textarea
   resize: none
+
+label.toggle
+  position: absolute
+  bottom: 3px
 </style>
