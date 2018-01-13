@@ -33,6 +33,7 @@ div
 import ChatButton from '@/components/generic/Button';
 import Giphy from '@/giphy';
 import _random from 'lodash/random';
+import { linkify, convertLineBreaks } from '@/helpers';
 
 export default {
   name: 'chat-message-form',
@@ -63,6 +64,11 @@ export default {
   methods: {
     submit(message) {
       message = message || this.message;
+
+      // Perform any necessary html conversions
+      message = linkify(
+        convertLineBreaks(message), true
+      );
 
       if (!this.allowSubmission) {
         return;
