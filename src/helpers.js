@@ -25,8 +25,8 @@ export const emojify = (text, height = 26) => {
  * @returns {string} The url wrapped in an <a> tag
  */
 export const linkify = (text, openExternal = false) => text.replace(
-  /(?<!src=[\'"])(((f|ht){1}tps?:\/\/)[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i,
-  `<a href="$1" ${openExternal ? 'target="_blank"' : ''}>$1</a>`
+  /(?:^|[^"'])((ftp|http|https|file):\/\/[\S]+(\b|$))/gim,
+  `<a href="$1"${openExternal ? 'target="_blank"' : ''}>$1</a>`
 );
 
 /**
