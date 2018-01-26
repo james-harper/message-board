@@ -89,8 +89,8 @@ export default {
       message = message || this.message;
 
       // Perform any necessary html conversions
-      message = linkify(
-        convertLineBreaks(message), true
+      message = convertLineBreaks(
+        linkify(message, true)
       );
 
       if (!this.allowSubmission) {
